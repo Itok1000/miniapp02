@@ -10,14 +10,20 @@ class UserSessionsController < ApplicationController
       @user = login(params[:email], params[:password])
 
       if @user
-        redirect_to root_path
+        redirect_to root_path, success: 'ログインしました'
       else
-        render :new
+        flash.now[:danger] = 'ログインに失敗しました'
+        render :new, status: :unprocessable_entity
         # ●renderについて
         # 指定されたビューテンプレートの内容をクライアントに返し、現在のウェブページを更新する
         # この操作は新しいページへの移動を伴わずに行われ、サーバーは直接HTMLをレスポンスとして送信する
         # ユーザーの入力エラーがあった場合に特に有効で、redirect_toが新しいHTTPリクエストを生成しフォームデータを失うのに対し、
         # renderは現在のHTTPリクエスト内でビューを直接表示し、入力データを保持する
+
+        # status: :unprocessable_entity とは
+        # HTTPステータスコード422を返すことを示す。このステータスは、リクエストがサーバーに受け付けられたものの、
+        # リクエスト内容に含まれるデータが不適切なために処理できないことを示す。
+        # バリデーションエラーやフォーマットエラーなどが原因で、リソースを正しく処理できない場合に使用される。
       end
     end
     # ●redirect_toについて
@@ -28,7 +34,7 @@ class UserSessionsController < ApplicationController
     # 例えば、ログインやログアウト後のリダイレクトはユーザーの認証状態を更新し、その結果を新しいリクエストに即座に反映させる
     def destroy
       logout
-      redirect_to root_path, status: :see_other
+      redirect_to root_path, danger: 'ログアウトしました', status: :see_other
     end
   # ●redirect_toについて
   # 指定されたURLへユーザーをリダイレクトする
