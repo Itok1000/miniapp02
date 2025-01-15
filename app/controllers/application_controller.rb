@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   # before_action が適用される
   before_action :require_login
 
+  add_flash_types :success, :danger
+  # add_flash_types とは、
+  # フラッシュメッセージのタイプを追加するメソッド
+
   private
 
   def not_authenticated
