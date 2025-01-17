@@ -62,5 +62,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "simplecov", require: false, group: :test
