@@ -28,4 +28,12 @@
     
 }
 
+.container {
+  background-image: url('background.jpg');
+  height: calc(100vh - 134px);
+  position: relative;
+  background-position: center;
+  background-size: cover; /* 画像が要素を覆うようにする */
+}
+
 
