@@ -10,9 +10,9 @@ class UserSessionsController < ApplicationController
       @user = login(params[:email], params[:password])
 
       if @user
-        redirect_to root_path, success: "ログインしました"
+        redirect_to root_path, success: t("user_sessions.login.success")
       else
-        flash.now[:danger] = "ログインに失敗しました"
+        flash.now[:danger] = t("user_sessions.login.failure")
         render :new, status: :unprocessable_entity
         # ●renderについて
         # 指定されたビューテンプレートの内容をクライアントに返し、現在のウェブページを更新する
@@ -34,7 +34,7 @@ class UserSessionsController < ApplicationController
     # 例えば、ログインやログアウト後のリダイレクトはユーザーの認証状態を更新し、その結果を新しいリクエストに即座に反映させる
     def destroy
       logout
-      redirect_to root_path, danger: "ログアウトしました", status: :see_other
+      redirect_to root_path, danger: t("user_sessions.logout.success"), status: :see_other
     end
   # ●redirect_toについて
   # 指定されたURLへユーザーをリダイレクトする

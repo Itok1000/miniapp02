@@ -1,0 +1,35 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら(工事中)
+    login:
+      success: ログインしました
+      failure: ログインに失敗しました
+    logout:
+      success: ログアウトしました
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+    registration:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
+  header:
+    login: ログイン
+    logout: ログアウト
+    how_to_use: このアプリの使い方
+    battle: 試合記録
+    battle_index: 試合記録一覧
+    create_board: 試合記録作成
+    bookmark_index: ブックマーク一覧
