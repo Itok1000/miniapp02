@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
-        redirect_to root_path, success: t('users.registration.success')
+        redirect_to root_path, success: t("users.registration.success")
       else
-        flash.now[:danger] = t('users.registration.failure')
+        flash.now[:danger] = t("users.registration.failure")
         render :new, status: :unprocessable_entity
         # ●renderについて
         # 指定されたビューテンプレートの内容をクライアントに返し、現在のウェブページを更新する
