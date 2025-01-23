@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-    before_action :set_note, only[:edit, :update, :destroy]
     def index
         @notes = Note.includes(:user)
     end
@@ -9,6 +8,7 @@ class NotesController < ApplicationController
     end
 
     def create
+        @note = Note.find(params[:id])
         @notes = Note.new(note_params)
         if @note.save
             redirect to notes_path
@@ -18,9 +18,11 @@ class NotesController < ApplicationController
     end
 
     def edit
+        @note = Note.find(params[:id])
     end
 
     def update
+        @note = Note.find(params[:id])
         if @note.update(note_params)
             redirect to notes_path
         else
@@ -37,9 +39,5 @@ class NotesController < ApplicationController
 
     def note_params
         params.require(:post).permit(:title, :content)
-    end
-
-    def set_note
-        @note = Note.find(params[:id])
     end
 end
