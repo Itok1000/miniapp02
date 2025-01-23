@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <h1>試合記録一覧</h1>
+        <br>
+        <div class = "text-center">
+          <%= link_to t('header.create_board'), new_note_path, class: 'link-button' %>
+        </div>
+        <% @notes.each do |note| %>
+          <li>
+           <h2><%= note.title %><h2>
+           <p><%= note.content %></p>
+           <span><small><%= post.created_at %></small></span>
+           <div class = "edit-delete-wrapper">
+           <%= link_to "試合記録編集", edit_note_path(note), class: 'link-button' %>
+           <%= button_to "削除" ,note_path(note),method: :delete, class: "link-delete-button" %>
+           </div>
+          </li>
+        <% end %>
+    </div>
+  </div>
+</div>

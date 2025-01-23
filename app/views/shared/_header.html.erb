@@ -14,8 +14,8 @@
           <%= link_to t('header.battle'), '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
           <div class='dropdown-menu dropdown-menu-end'>
             <%= link_to t('header.how_to_use'), how_to_use_path, class: 'dropdown-item' %>
-            <%= link_to t('header.battle_index'), '#', class: 'dropdown-item' %>
-            <%= link_to t('header.create_board'), '#', class: 'dropdown-item' %>
+            <%= link_to t('header.battle_index'), notes_path, class: 'dropdown-item' %>
+            <%= link_to t('header.create_board'), new_note_path, class: 'dropdown-item' %>
           </div>
         </li>
 
