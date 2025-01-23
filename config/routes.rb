@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "static_pages#top"
+  get "/how_to_use", to: "static_pages#how_to_use"
+  
   resources :users, only: %i[new create]
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
