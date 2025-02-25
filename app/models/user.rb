@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :user_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
+
+  has_many :notes, dependent: :destroy
 end
 
 # 上記のコードには以下のバリデーションが設けられている
