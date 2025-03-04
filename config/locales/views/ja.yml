@@ -33,3 +33,6 @@ ja:
     battle_index: 試合記録一覧
     create_board: 試合記録作成
     bookmark_index: ブックマーク一覧
+  defaults:
+    flash_message:
+      require_login: ログインしてください
