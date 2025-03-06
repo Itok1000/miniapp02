@@ -7,12 +7,14 @@
             <%= link_to match.title, '#' %>
           </h4>
           <div class='ms-auto'>
-            <%= link_to '#', id: 'button-edit-#{match.id}' do %>
-              <i class="bi bi-pencil-fill"></i>
+           <div class='edit-delete-wrapper'>
+            <%= link_to '#', class: "link-button", id: 'button-edit-#{match.id}' do %>
+              編集
+            <% end %>     
+            <%= link_to '#', class: "link-delete-button", id: 'button-delete-#{match.id}', method: :delete, data: {confirm: ''} do %>
+              削除
             <% end %>
-            <%= link_to '#', id: 'button-delete-#{match.id}', method: :delete, data: {confirm: ''} do %>
-              <i class="bi bi-trash-fill"></i>
-            <% end %>
+           </div>
           </div>
         </div>
         <ul class="list-inline">
